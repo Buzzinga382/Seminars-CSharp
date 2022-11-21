@@ -1,5 +1,17 @@
-﻿int number = int.Parse(Console.ReadLine());
+﻿//Задача 2 (Является ли первое число квадратом второго?)
 
-int quarter = number * number;
+Console.WriteLine("Enter 2 numbers");
 
-Console.WriteLine(quarter);
+int number1 = int.Parse(Console.ReadLine());
+int number2 = int.Parse(Console.ReadLine());
+
+int quarter = number2 * number2;
+
+if(quarter == number1)
+{
+    Console.WriteLine("Yes");
+}
+else
+{
+    Console.WriteLine("No");
+}
