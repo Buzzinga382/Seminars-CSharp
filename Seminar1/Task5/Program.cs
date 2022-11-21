@@ -1,0 +1,10 @@
+﻿// Напишите программу, которая принимает на вход 
+// трёхзначное число и на выходе показывает последнюю цифру этого числа.
+
+Console.WriteLine("Enter 3-digit number");
+
+int number = int.Parse(Console.ReadLine());
+
+int lastNum = number % 10;
+
+Console.WriteLine(lastNum);
