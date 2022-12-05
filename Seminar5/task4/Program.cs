@@ -1,0 +1,48 @@
+﻿/* Задайте одномерный массив из 123 случайных чисел.
+Найдите количество элементов массива, значения которых лежат в
+отрезке [10,99] */
+
+int[] array = GenerateArray(-100, 100, 123);
+
+PrintArray(array);
+
+int quantity = FindQuantityOfNeededNumbers(array, 10, 99);
+
+Console.WriteLine($"It's {quantity} of needed elements");
+
+
+
+
+
+int FindQuantityOfNeededNumbers(int[] array, int min, int max)
+{
+    int quantity = 0;
+
+    for (int i = 0; i < array.Length; i++)
+    {
+        if (array[i] >= min && array[i] <= max)
+        {
+            quantity++;
+        }
+    }
+    return quantity;
+}
+
+
+int[] GenerateArray(int min, int max, int length)
+{
+    Random random = new Random();
+    int[] array = new int[length];
+
+    for (int i = 0; i < array.Length; i++)
+    {
+        array[i] = random.Next(min, max + 1);
+    }
+    return array;
+}
+
+void PrintArray(int[] array)
+{
+    string message = string.Join(", ", array);
+    Console.WriteLine($"[{message}]");
+}
