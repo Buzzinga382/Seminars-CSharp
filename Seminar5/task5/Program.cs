@@ -20,25 +20,25 @@ PrintArray(result);
 
 
 
-int[] GetProductOfSimmetricElements(int [] array)
+int[] GetProductOfSimmetricElements(int[] array)
 {
-    int newArrLenght = array.Length/2;
-    if(array.Length%2 != 0)
+    int newArrLenght = array.Length / 2;
+    if (array.Length % 2 != 0)
     {
-        newArrLenght = newArrLenght +1;
+        newArrLenght = newArrLenght + 1;
     }
 
-    int [] newArray = new int[newArrLenght];
+    int[] newArray = new int[newArrLenght];
     int i;
 
-    for(i = 0; i < newArrLenght-1; i++)
+    for (i = 0; i < newArrLenght - 1; i++)
     {
-        newArray[i] = array[i]*array[array.Length-1-i];
+        newArray[i] = array[i] * array[array.Length - 1 - i];
     }
 
-    if(array.Length%2 == 0)
+    if (array.Length % 2 == 0)
     {
-        newArray[i] = array[i]*array[array.Length-1-i];
+        newArray[i] = array[i] * array[array.Length - 1 - i];
     }
     else
     {
