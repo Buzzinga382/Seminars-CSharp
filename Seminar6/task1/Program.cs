@@ -1,5 +1,10 @@
 ﻿// Напишите программу, которая перевернёт одномерный массив
 
+// using Common;
+
+// int [] arr = Helper.GenerateArray(-10, 10, 7);
+
+// PrintArray(arr);
 
 int[] array = GenerateArray(-10, 11, 10);
 
