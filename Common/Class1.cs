@@ -57,4 +57,21 @@ public static class Helper
         }
         return array;
     }
+
+    public static int InputIntNumber(string str)
+    {
+        Console.WriteLine(str);
+
+        bool isParsed = int.TryParse(Console.ReadLine(), out int number);
+
+        if (isParsed)
+        {
+            return number;
+        }
+        else
+        {
+            Console.WriteLine("Incorrect input...");
+            return InputIntNumber(str);
+        }
+    }
 }
