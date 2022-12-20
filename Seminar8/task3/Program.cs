@@ -17,34 +17,85 @@ using static Common.Helper;
 int m = InputIntNumber("Number of rows:");
 int n = InputIntNumber("Number of columns:");
 
-int[,] userArray = CreateRandom2DArray(m,n);
+int[,] userArray = CreateRandom2DArray(m, n);
 
 Print2DArray(userArray);
 Console.WriteLine();
 
+int[,] dict = Dict1DArray(userArray);
+Print2DArray(dict);
+Console.WriteLine();
+
+int[,] result = FrequencyDictionary(dict);
+Print2DArray(result);
+Console.WriteLine();
+
+PrintDictionary(result);
 
 
+
+
+
+
+int[,] Dict1DArray(int[,] array)
+{
+    int[,] dictArray = new int[2, array.Length];
+    int temp = 0;
+    int k = 0;
+
+    for (int i = 0; i < array.GetLength(0); i++)
+    {
+        for (int j = 0; j < array.GetLength(1); j++)
+        {
+            temp = array[i, j]; 
+            dictArray[0,k] = temp;
+            k++;
+        }
+    }
+    return dictArray;
+}
 
 
 int[,] FrequencyDictionary(int[,] array)
 {
-    int rows = array.GetLength(0);
-    int columns = array.GetLength(1);
-    int[,] dictionary = new int[array.Length, 2];
-
-    int tempI = 0;
-    int tempJ = 0;
     int count = 0;
+    int j = 0;
+    int temp = 0;
 
-    for(int i = tempI; i < columns; i++)
+    while(j < array.GetLength(1))
     {
-        for(int j = tempJ; j < rows; j++)
-        {
-            if(array[i,j] == array[tempI, tempJ])
-            {
-                count++;
-            }
+    temp = array[0,j];
 
+    for (int i = 0; i < array.GetLength(1); i++)
+    {
+        if(temp == array[0, i])
+        {
+            count++;
+            array[1,j] = count;
         }
     }
+    count = 0;
+    j++;
+    }
+    return array;
+}
+
+void PrintDictionary(int[,] dictArray)
+{
+    int tmp = 0;
+    Console.WriteLine($"Number {dictArray[0,0]} repeated {dictArray[1,0]} times");
+    int j = 1;
+
+     while(j < dictArray.GetLength(1))
+     {
+        tmp = dictArray[0,j];
+     for (int i = 1; i < dictArray.GetLength(1); i++)
+     {
+        if(tmp != dictArray[0,i])
+        {
+            Console.WriteLine($"Number {dictArray[0,i]} repeated {dictArray[1,i]} times");
+        }
+     }
+     j++;
+     }
 }
